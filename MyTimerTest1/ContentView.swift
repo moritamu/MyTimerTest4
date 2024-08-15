@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var timerRemaining = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(timerRemaining)").font(.largeTitle)
+            Button("スタート"){
+                timerRemaining = 10
+            }
+            .font(.title)
+            .foregroundColor(.red)
+            .onReceive(timer) { _ in
+                if timerRemaining > 0{
+                    timerRemaining -= 1
+                }
+            }
         }
         .padding()
     }
