@@ -8,23 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var timerRemaining = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
     var body: some View {
-        VStack {
-            Text("\(timerRemaining)").font(.largeTitle)
-            Button("スタート"){
-                timerRemaining = 10
+        NavigationStack {
+            ZStack {
+                Image("backgroundTimer")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                VStack(spacing: 30.0){
+                    Text("残り１０秒")
+                        .font(.largeTitle)
+                    HStack{
+                        Button{
+                            
+                        } label: {
+                            Text("スタート")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .frame(width: 120,height: 120)
+                                .background(in: Circle())
+                                .backgroundStyle(Color("startColor"))
+                        }
+                        Button{
+                            
+                        } label: {
+                            Text("ストップ")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .frame(width: 120,height: 120)
+                                .background(in: Circle())
+                                .backgroundStyle(Color("stopColor"))
+                        }
+
+                    }
+                }
             }
-            .font(.title)
-            .foregroundColor(.red)
-            .onReceive(timer) { _ in
-                if timerRemaining > 0{
-                    timerRemaining -= 1
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink{
+                        SettingView()
+                    } label: {
+                        Text("設定")
+                    }
                 }
             }
         }
-        .padding()
     }
 }
 
