@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    @State var timerHandler: Timer?
+    @State var count = 0
+    @AppStorage("timer_value") var timervalue = 10
+    
     var body: some View {
+
         NavigationStack {
             ZStack {
                 Image("backgroundTimer")
@@ -55,6 +59,14 @@ struct ContentView: View {
             }
         }
     }
+    
+    func countDowsTimer() {
+        count += 1
+        if timervalue - count <= 0 {
+            timerHandler?.invalidate()
+        }
+    }
+
 }
 
 #Preview {
