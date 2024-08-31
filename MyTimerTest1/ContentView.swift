@@ -22,8 +22,12 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     .scaledToFill()
                 VStack(spacing: 30.0){
-                    Text("残り\(timervalue - count)秒")
-                        .font(.largeTitle)
+                    ZStack {
+                        ProgressBar(progress: timervalue - count, initial: (timervalue))
+                            .frame(width: 200,height: 200)
+                        Text("残り\(timervalue - count)秒")
+                            .font(.largeTitle)
+                    }
                     HStack{
                         Button{
                             startTimer()
@@ -63,7 +67,7 @@ struct ContentView: View {
             }
             .alert("修了",isPresented: $showAlert) {
                 Button("Ok") {
-                    print("Okがタップされました")
+//                    print("Okがタップされました")
                 }
             }message: {
                 Text("タイマー修了時間です。")
