@@ -11,9 +11,10 @@ struct ContentView: View {
     @State var timerHandler: Timer?
     @State var count = 0
     @AppStorage("timer_value") var timervalue = 10
+    @State var showAlert = false
     
     var body: some View {
-
+        
         NavigationStack {
             ZStack {
                 Image("backgroundTimer")
@@ -21,11 +22,11 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     .scaledToFill()
                 VStack(spacing: 30.0){
-                    Text("残り１０秒")
+                    Text("残り\(timervalue - count)秒")
                         .font(.largeTitle)
                     HStack{
                         Button{
-                            
+                            startTimer()
                         } label: {
                             Text("スタート")
                                 .font(.title)
@@ -35,7 +36,7 @@ struct ContentView: View {
                                 .backgroundStyle(Color("startColor"))
                         }
                         Button{
-                            
+                            stopTimer()
                         } label: {
                             Text("ストップ")
                                 .font(.title)
@@ -44,9 +45,12 @@ struct ContentView: View {
                                 .background(in: Circle())
                                 .backgroundStyle(Color("stopColor"))
                         }
-
+                        
                     }
                 }
+            }
+            .onAppear{
+                count = 0
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -57,16 +61,50 @@ struct ContentView: View {
                     }
                 }
             }
+            .alert("修了",isPresented: $showAlert) {
+                Button("Ok") {
+                    print("Okがタップされました")
+                }
+            }message: {
+                Text("タイマー修了時間です。")
+            }
         }
     }
     
-    func countDowsTimer() {
+    func countDownTimer() {
         count += 1
         if timervalue - count <= 0 {
+            showAlert = true
+//            Timer停止
             timerHandler?.invalidate()
         }
     }
-
+    
+    func startTimer() {
+        if let unwrappedTimerHandler = timerHandler {
+            if unwrappedTimerHandler.isValid == true {
+                return
+//                何もしない
+            }
+        }
+        if timervalue - count <= 0 {
+            count = 0
+//            showAlert = false
+            
+        }
+        timerHandler = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            countDownTimer()
+        }
+    }
+    
+    func stopTimer() {
+        if let unwrappedTimerHandler = timerHandler {
+            if unwrappedTimerHandler.isValid == true {
+                unwrappedTimerHandler.invalidate()
+            }
+        }
+    }
+    
 }
 
 #Preview {
