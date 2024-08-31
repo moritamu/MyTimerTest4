@@ -16,22 +16,22 @@ struct ProgressBar: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 15.0)
-                .opacity(0.3)
-                .foregroundColor(.red)
+                .opacity(0.4)
+                .foregroundColor(.indigo)
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(Float(progress) / Float(initial), 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: 15.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.red)
+                .foregroundColor(.indigo)
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.easeIn, value: 1.0)//?????
         }
-        .onAppear(){
-            //            UIApplication.shared.isIdleTimerDisabled = false
-            
-        }
+//        .onAppear(){
+//            //            UIApplication.shared.isIdleTimerDisabled = false
+//            
+//        }
     }
 }
 
 #Preview {
-    ProgressBar(progress: 5, initial: 10)
+    ProgressBar(progress: 6, initial: 10)
 }
