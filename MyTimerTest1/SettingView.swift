@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SettingView: View {
 //    @State var timerValue = 10
-    @AppStorage("timer_value") var timerValue = 10
+    @Binding var timerValue: Int
+//      timerValueは@AppStorageで設定読み込み
+//    @AppStorage("timer_value") var timerValue = 10
     
     var body: some View {
         ZStack{
@@ -22,6 +24,7 @@ struct SettingView: View {
                     
                     
                 Picker(selection: $timerValue) {
+                    Text("5").tag(5)
                     Text("10").tag(10)
                     Text("20").tag(20)
                     Text("30").tag(30)
@@ -39,5 +42,6 @@ struct SettingView: View {
 }
 
 #Preview {
-    SettingView()
+    @Previewable @State var timerValue: Int = 10
+    SettingView(timerValue: $timerValue)
 }

@@ -10,8 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @State var timerHandler: Timer?
     @State var count = 0
-    @AppStorage("timer_value") var timervalue = 10
+    //      timerValueは@AppStorageで設定読み込み
+    //    @AppStorage("timer_value") var timervalue = 10
+    @State var timervalue: Int = 10
     @State var showAlert = false
+    @State var kaisu = 1
+    @State var dripData: DripData
+    
     
     var body: some View {
         
@@ -25,8 +30,14 @@ struct ContentView: View {
                     ZStack {
                         ProgressBar(progress: timervalue - count, initial: (timervalue))
                             .frame(width: 200,height: 200)
-                        Text("残り\(timervalue - count)秒")
-                            .font(.largeTitle)
+                        VStack {
+                            Text("omosanohyouji")
+                            Text(String(format: "%.0f", Double(timervalue - count) / Double(timervalue) * 100))
+                                .font(.largeTitle)
+                            Text("残り\(timervalue - count)秒")
+                                .font(.largeTitle)
+                            Text("\(kaisu)回目")
+                        }
                     }
                     HStack{
                         Button{
@@ -59,7 +70,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink{
-                        SettingView()
+                        SettingView(timerValue: $timervalue)
                     } label: {
                         Text("設定")
                     }
@@ -67,7 +78,7 @@ struct ContentView: View {
             }
             .alert("修了",isPresented: $showAlert) {
                 Button("Ok") {
-//                    print("Okがタップされました")
+                    //                    print("Okがタップされました")
                 }
             }message: {
                 Text("タイマー修了時間です。")
@@ -78,8 +89,10 @@ struct ContentView: View {
     func countDownTimer() {
         count += 1
         if timervalue - count <= 0 {
+            //            ここで回数を数える
+            
+            //            Timer停止
             showAlert = true
-//            Timer停止
             timerHandler?.invalidate()
         }
     }
@@ -88,14 +101,14 @@ struct ContentView: View {
         if let unwrappedTimerHandler = timerHandler {
             if unwrappedTimerHandler.isValid == true {
                 return
-//                何もしない
+                //                何もしない
             }
         }
         if timervalue - count <= 0 {
             count = 0
-//            showAlert = false
-            
+            //            showAlert = false
         }
+        //        タイマースタート
         timerHandler = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             countDownTimer()
         }
@@ -112,5 +125,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(dripData: DripData(mame: 12.0, kosa: 6.0, time: [5,10,12]))
 }

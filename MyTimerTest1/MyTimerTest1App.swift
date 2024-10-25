@@ -11,7 +11,7 @@ import SwiftUI
 struct MyTimerTest1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(dripData: DripData(mame: 12.0, kosa: 6.0, time: [5,10,8]))
         }
     }
 }
