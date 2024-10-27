@@ -62,6 +62,8 @@ struct ContentView: View {
                         }
                         
                     }
+                    Text(String(format: "%.1f", dripData.mame) + "g")
+                        .font(.largeTitle)
                 }
             }
             .onAppear{
@@ -70,7 +72,9 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink{
-                        SettingView(timerValue: $timervalue)
+//                        SettingView(timerValue: $timervalue)
+//                        MameSetView(dripData: dripData, mame: "12")
+                        MameSetView(dripData: dripData, mame: "10")
                     } label: {
                         Text("設定")
                     }
