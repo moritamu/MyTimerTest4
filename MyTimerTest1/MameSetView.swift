@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MameSetView: View {
     @State var dripData: DripData
-    @State var mame: String
+    @State var mame1: String
     
     var body: some View {
         @Bindable var dripData = dripData
@@ -18,12 +18,12 @@ struct MameSetView: View {
             HStack {
                 Spacer()
                 Text("豆の重さを入力")
-                TextField("豆の重さ", text: $mame)
+                TextField("豆の重さ", text: $mame1)
                     .frame(width: 100)
                     .multilineTextAlignment(TextAlignment.trailing)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .onSubmit {
-                        dripData.mame = Double(mame) ?? 12.0
+                        dripData.mame = Double(mame1) ?? 12.0
                     }
                 
                 Text("g")
@@ -49,5 +49,5 @@ struct MameSetView: View {
 }
 
 #Preview {
-    MameSetView(dripData: .init(mame: 12, kosa: 6, time: []), mame: "15")
+    MameSetView(dripData: .init(mame: 12, kosa: 6, time: []), mame1: "15")
 }
