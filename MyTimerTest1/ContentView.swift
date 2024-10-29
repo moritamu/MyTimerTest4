@@ -64,6 +64,7 @@ struct ContentView: View {
                     }
                     Text(String(format: "%.1f", dripData.mame) + "g")
                         .font(.largeTitle)
+                    Text("\(dripData.kosa)")
                 }
             }
             .onAppear{
