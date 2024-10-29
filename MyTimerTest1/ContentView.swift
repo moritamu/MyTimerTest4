@@ -74,7 +74,7 @@ struct ContentView: View {
                     NavigationLink{
 //                        SettingView(timerValue: $timervalue)
 //                        MameSetView(dripData: dripData, mame: "12")
-                        MameSetView(dripData: dripData, mame1: "10")
+                        MameSetView(dripData: dripData)
                     } label: {
                         Text("設定")
                     }
