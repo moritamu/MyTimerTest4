@@ -13,7 +13,7 @@ import Observation
     var kosa: Double = 6
 //    時間を配列で、例[45,45,45] [１回目,２回目,３回目,・・・]
 //    var time: Array<Any>
-    var time: [Int] = [10,20,30]
+    var time: [Int] = [45,45,45]
     
     var hotWT: Double {
         get {
