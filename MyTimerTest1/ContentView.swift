@@ -3,7 +3,8 @@
 //  MyTimerTest1
 //
 //  Created by MsMacM on 2024/08/15.
-//
+//  24/10/30 時間の設定ができるようにすること
+//  ３回（配列のある回数）タイマーが動くようにする
 
 import SwiftUI
 

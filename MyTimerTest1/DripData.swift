@@ -12,7 +12,8 @@ import Observation
     var mame: Double = 12
     var kosa: Double = 6
 //    時間を配列で、例[45,45,45] [１回目,２回目,３回目,・・・]
-    var time: Array<Any>
+//    var time: Array<Any>
+    var time: [Int] = [10,20,30]
     
     var hotWT: Double {
         get {
@@ -32,7 +33,7 @@ import Observation
     //        }
     //    }
     //    計算はその都度でいい
-    init(mame: Double, kosa: Double, time: Array<Any>) {
+    init(mame: Double, kosa: Double, time: [Int]) {
         self.mame = mame
         self.kosa = kosa
         self.time = time
