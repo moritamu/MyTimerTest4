@@ -3,7 +3,8 @@
 //  MyTimerTest1
 //
 //  Created by MsMacM on 2024/10/26.
-//
+//  お湯の注ぎ回数を変更できるようにしたい
+//  たぶんdripData.time.countでdripData.time(kaisu)があるかないかで判断できる
 
 import SwiftUI
 
@@ -31,6 +32,7 @@ struct MameSetView: View {
             Text("お湯の注ぎ時間")
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             HStack {
+//                注ぎ時間の設定
                 Spacer()
                 ForEach(0..<dripData.time.count,  id: \.self) { i in
                     Text("\(i + 1)回")
