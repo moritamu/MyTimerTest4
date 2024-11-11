@@ -11,8 +11,8 @@ import Observation
 @Observable class DripData {
     var mame: Double = 12
     var kosa: Double = 6
-//    時間を配列で、例[45,45,45] [１回目,２回目,３回目,・・・]
-//    var time: Array<Any>
+    //    時間を配列で、例[45,45,45] [１回目,２回目,３回目,・・・]
+    //    var time: Array<Any>
     var time: [Int] = [45,45,45]
     
     var hotWT: Double {
@@ -20,7 +20,6 @@ import Observation
             return mame / kosa * 100.0
         }
     }
-    
     //    var hotWF: Double {
     //        get {
     //            return mame / kosa * 20
