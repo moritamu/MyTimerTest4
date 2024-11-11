@@ -4,7 +4,9 @@
 //
 //  Created by MsMacM on 2024/08/15.
 //  24/10/30 時間の設定ができるようにすること　完成11/1
-//  ３回（配列のある回数）タイマーが動くようにする
+//  音を鳴らす。ブルブルも
+//
+//
 
 import SwiftUI
 
@@ -13,7 +15,7 @@ struct ContentView: View {
     @State var count = 0
     //      timerValueは@AppStorageで設定読み込み
     //    @AppStorage("timer_value") var timervalue = 10
-
+    
     @State var timervalue: Int = 10
     @State var showAlert = false
     @State var kaisu = 0
@@ -29,7 +31,7 @@ struct ContentView: View {
                     .scaledToFill()
                 VStack(spacing: 30.0){
                     ZStack {
-                        ProgressBar(progress: timervalue - count, initial: (timervalue))
+                        ProgressBar(progress: timervalue - count, initial: timervalue)
                             .frame(width: 200,height: 200)
                         VStack {
                             Text("豆 \(Int(dripData.mame))g")
@@ -51,7 +53,6 @@ struct ContentView: View {
                             }
                             Text("残り\(timervalue - count)秒")
                                 .font(.headline)
-                            
                         }
                     }
                     HStack{
@@ -85,30 +86,29 @@ struct ContentView: View {
                     Text("\(dripData.time[2])")
                     
                 }
-            }
-            .onAppear{
-                if kaisu == 0 {
-                    timervalue = dripData.time[kaisu]
+                
+                .onAppear{
+                    timervalue = dripData.time[0]
                     kaisu = 1
+                    count = 0
                 }
-                count = 0
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink{
-                        MameSetView(dripData: dripData)
-                    } label: {
-                        Text("設定")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink{
+                            MameSetView(dripData: dripData)
+                        } label: {
+                            Text("設定")
+                        }
                     }
                 }
-            }
-            .alert("終了",isPresented: $showAlert) {
-                Button("Ok") {
-                    timervalue = dripData.time[0]
-                    //                    print("Okがタップされました")
+                .alert("終了",isPresented: $showAlert) {
+                    Button("Ok") {
+                        timervalue = dripData.time[0]
+                        //                    print("Okがタップされました")
+                    }
+                }message: {
+                    Text("ドリップ終了です。美味しいコーヒーはできましたか。")
                 }
-            }message: {
-                Text("ドリップ終了です。美味しいコーヒーはできましたか。")
             }
         }
     }
@@ -117,10 +117,10 @@ struct ContentView: View {
         count += 1
         if timervalue - count <= 0 {
             switch kaisu {
-                case 1:
+            case 1:
                 timervalue = dripData.time[1]
                 count = 0
-                case 2:
+            case 2:
                 timervalue = dripData.time[2]
                 count = 0
             case 3:
