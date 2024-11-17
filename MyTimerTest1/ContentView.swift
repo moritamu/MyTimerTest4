@@ -20,6 +20,7 @@ struct ContentView: View {
     @State var showAlert = false
     @State var kaisu = 0
     @State var dripData: DripData
+    let soundPlayer = SoundPlayer()
     
     var body: some View {
         
@@ -120,14 +121,17 @@ struct ContentView: View {
             case 1:
                 timervalue = dripData.time[1]
                 count = 0
+                soundPlayer.play()
             case 2:
                 timervalue = dripData.time[2]
                 count = 0
+                soundPlayer.play()
             case 3:
                 kaisu = 0
                 count = 0
                 showAlert = true
                 timerHandler?.invalidate()//Timer停止
+                soundPlayer.play()
             default:
                 break
             }

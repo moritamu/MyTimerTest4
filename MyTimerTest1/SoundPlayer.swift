@@ -15,8 +15,12 @@ class SoundPlayer: NSObject {
     var player: AVAudioPlayer!
     
     func play() {
-        player = try! AVAudioPlayer(data: musicData)
-        player.play()
+        do {
+            player = try! AVAudioPlayer(data: musicData)
+            player.play()
+        } catch {
+            print("音楽がなりません")
+        }
     }
 
 }
