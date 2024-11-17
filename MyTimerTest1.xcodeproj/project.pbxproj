@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		464340972C82F111006268EB /* progressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464340962C82F111006268EB /* progressView.swift */; };
+		46737BAA2CE9D2BA00C62877 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46737BA92CE9D2BA00C62877 /* SoundPlayer.swift */; };
 		469CB9492C8AF8E70044C6E8 /* DripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469CB9482C8AF8E70044C6E8 /* DripData.swift */; };
 		46CE29192C6D7C5B002709CC /* MyTimerTest1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE29182C6D7C5B002709CC /* MyTimerTest1App.swift */; };
 		46CE291B2C6D7C5B002709CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE291A2C6D7C5B002709CC /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		464340962C82F111006268EB /* progressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = progressView.swift; sourceTree = "<group>"; };
+		46737BA92CE9D2BA00C62877 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		469CB9482C8AF8E70044C6E8 /* DripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripData.swift; sourceTree = "<group>"; };
 		46CE29152C6D7C5B002709CC /* MyTimerTest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTimerTest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46CE29182C6D7C5B002709CC /* MyTimerTest1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimerTest1App.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				46CE29182C6D7C5B002709CC /* MyTimerTest1App.swift */,
 				46CE291A2C6D7C5B002709CC /* ContentView.swift */,
+				46737BA92CE9D2BA00C62877 /* SoundPlayer.swift */,
 				469CB9482C8AF8E70044C6E8 /* DripData.swift */,
 				464340962C82F111006268EB /* progressView.swift */,
 				46CE29262C6D93F0002709CC /* SettingView.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46CE29272C6D93F0002709CC /* SettingView.swift in Sources */,
+				46737BAA2CE9D2BA00C62877 /* SoundPlayer.swift in Sources */,
 				464340972C82F111006268EB /* progressView.swift in Sources */,
 				46CE291B2C6D7C5B002709CC /* ContentView.swift in Sources */,
 				46D87F622CCCA411007C97E4 /* MameSetView.swift in Sources */,
