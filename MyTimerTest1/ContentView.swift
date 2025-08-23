@@ -13,17 +13,18 @@ import SwiftUI
 struct ContentView: View {
     @State var timerHandler: Timer?
     @State var count = 0
+
     //      timerValueは@AppStorageで設定読み込み
     //    @AppStorage("timer_value") var timervalue = 10
-    
+
     @State var timervalue: Int = 10
     @State var showAlert = false
     @State var kaisu = 0
     @State var dripData: DripData
     let soundPlayer = SoundPlayer()
-    
+
     var body: some View {
-        
+
         NavigationStack {
             ZStack {
                 Image("backgroundTimer")
@@ -77,7 +78,6 @@ struct ContentView: View {
                                 .background(in: Circle())
                                 .backgroundStyle(Color("stopColor"))
                         }
-                        
                     }
                     Text(String(format: "%.1f", dripData.mame) + "g")
                         .font(.largeTitle)
@@ -85,9 +85,8 @@ struct ContentView: View {
                     Text("\(dripData.time[0])")
                     Text("\(dripData.time[1])")
                     Text("\(dripData.time[2])")
-                    
                 }
-                
+
                 .onAppear{
                     timervalue = dripData.time[0]
                     kaisu = 1
@@ -138,7 +137,7 @@ struct ContentView: View {
             kaisu += 1
         }
     }
-    
+
     func startTimer() {
         if let unwrappedTimerHandler = timerHandler {
             if unwrappedTimerHandler.isValid == true {
@@ -153,7 +152,7 @@ struct ContentView: View {
             countDownTimer()
         }
     }
-    
+
     func stopTimer() {
         if let unwrappedTimerHandler = timerHandler {
             if unwrappedTimerHandler.isValid == true {
@@ -161,7 +160,6 @@ struct ContentView: View {
             }
         }
     }
-    
 }
 
 #Preview {
