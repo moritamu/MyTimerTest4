@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "46CE29142C6D7C5B002709CC"
-               BuildableName = "MyTimerTest1.app"
-               BlueprintName = "MyTimerTest1"
-               ReferencedContainer = "container:MyTimerTest1.xcodeproj">
+               BuildableName = "MyDrioTimer.app"
+               BlueprintName = "MyDrioTimer"
+               ReferencedContainer = "container:MyDrioTimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "46CE29142C6D7C5B002709CC"
-            BuildableName = "MyTimerTest1.app"
-            BlueprintName = "MyTimerTest1"
-            ReferencedContainer = "container:MyTimerTest1.xcodeproj">
+            BuildableName = "MyDrioTimer.app"
+            BlueprintName = "MyDrioTimer"
+            ReferencedContainer = "container:MyDrioTimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "46CE29142C6D7C5B002709CC"
-            BuildableName = "MyTimerTest1.app"
-            BlueprintName = "MyTimerTest1"
-            ReferencedContainer = "container:MyTimerTest1.xcodeproj">
+            BuildableName = "MyDrioTimer.app"
+            BlueprintName = "MyDrioTimer"
+            ReferencedContainer = "container:MyDrioTimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
